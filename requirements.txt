@@ -2,3 +2,4 @@ Flask~=3.0.3
 llama-index~=0.10.38
 Flask-Cors~=4.0.1
 python-dotenv~=1.0.1
+uvicorn[standard]
