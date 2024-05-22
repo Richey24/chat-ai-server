@@ -4,12 +4,14 @@ from llama_index.core import (
     SimpleDirectoryReader,
     VectorStoreIndex,
 )
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
 app = Flask(__name__)
 CORS(app)
 # put your open ai key
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
 app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
