@@ -16,6 +16,7 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 index = None
+port = int(os.getenv('PORT', 4000))
 
 @app.route("/")
 def hello():
@@ -58,3 +59,6 @@ def query_index():
     query_engine = index.as_query_engine()
     response = query_engine.query(query_text)
     return str(response), 200
+
+if __name__ == '__main__':
+    app.run(debug=True, port=port)
