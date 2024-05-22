@@ -1,3 +1,4 @@
+import uvicorn
 from flask import Flask, request
 from flask_cors import CORS
 from llama_index.core import (
@@ -61,4 +62,4 @@ def query_index():
     return str(response), 200
 
 if __name__ == '__main__':
-    app.run(debug=True, port=port)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
